@@ -6,16 +6,15 @@ body{
     display: flex;
     flex-direction: column;
     
-}/*
+}
 .background{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    height: 100vh;
+   
 }
 .background::before{
+   
     content: '';
+   
     background-image: url('../img/buss.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -25,8 +24,14 @@ body{
     left: 0;
     bottom: 0;
     right: 0;
-}*/
+}
 main{
     height: 90vh;
  
+}
+
+.text_title{
+    font-size: 35px;
+    color: #FFFFFF;
+text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
 }
