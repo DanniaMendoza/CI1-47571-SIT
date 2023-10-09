@@ -1,0 +1,47 @@
+html{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    
+}
+.background{
+    height: 100vh;
+   
+}
+.background::before{
+   
+    content: '';
+   
+    background-image: url('../img/buss.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+main{
+    height: 90vh;
+ 
+}
+
+.text_title{
+    font-size: 35px;
+    color: #FFFFFF;
+text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+}
+.container_card{
+    display: flex;
+}
+
+.fondo_All{
+    background-image: url("https://portal.andina.pe/EDPfotografia2/Thumbnail/2009/08/28/000104312W.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   height: 100vh;
+}

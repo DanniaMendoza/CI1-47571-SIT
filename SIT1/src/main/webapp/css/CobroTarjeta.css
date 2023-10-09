@@ -1,0 +1,149 @@
+
+.bloque{
+    display: flex;
+    background-color: white;
+    height: 900px;
+}
+
+.aviso{
+    display: flex;
+    background-color: white;
+    margin-left: 500px;
+    margin-bottom: 300px;
+    align-items: center;
+}
+
+.aviso__h2{
+    font-size: 35px;
+    color: #440080;
+    margin-top: 100px;
+}
+
+.titulo{
+    display: flex;
+    height: 50px;
+    font-size: 25px;
+
+
+    color: brown;
+
+    
+}
+.contenedorN{
+    display: flex;
+    margin-top: 800px;
+    margin-left: -800px;
+}
+
+.titulo_opciones{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.letra{
+
+    margin-left: 40px;
+}
+.contenedorP__imagen1{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left:calc(50% - 50px) ;
+}
+
+.contenedorP__h2{
+    font-size: 2em;
+    color: black;
+    text-align: center;
+
+}
+
+.contenedorP__inputbox{
+    position: relative;
+    margin:30px 0;
+    width: 310px;
+    
+    border-bottom: 2px solid white;
+
+}
+
+.contenedorP__inputbox label{
+    position: absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 1.2em;
+    pointer-events: none;
+    transition: .5s;
+
+}
+
+input:focus ~ label,
+input:valid ~ label{
+    top: -5px;
+}
+
+.contenedorP__inputbox input{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: white;
+}
+
+.contenedorP__inputbox ion-icon{
+    position: absolute;
+    right: 8px;
+    color: black;
+    font-size: 1.8em;
+    top: 20px;
+
+}
+
+.contenedorP__notices label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 15px;
+    font-size: 18px;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+.contenedorP__precio{
+    
+    display: flex;
+    align-items: center;
+    line-height: 50px;
+    text-align: center;
+    margin: 10px;
+}
+
+
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background-color: white;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 5px;
+}
+
+button:hover{
+    background-color: grey;
+}
+
+.cajita{
+    margin-bottom: 50px;
+    height: 120px;
+    background-color: white;
+}

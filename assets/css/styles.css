@@ -35,3 +35,13 @@ main{
     color: #FFFFFF;
 text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
 }
+.container_card{
+    display: flex;
+}
+
+.fondo_All{
+    background-image: url("https://portal.andina.pe/EDPfotografia2/Thumbnail/2009/08/28/000104312W.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   height: 100vh;
+}
