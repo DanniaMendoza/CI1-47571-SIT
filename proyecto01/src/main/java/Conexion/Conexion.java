@@ -58,7 +58,7 @@ public class Conexion {
 
         if (this.conexion != null) {
             st = this.conexion.createStatement();
-            st.executeUpdate(wSQL);
+            st.executeUpdate(wSQL); // Ejecuta la consulta SQL proporcionada(como INSERT, UPDATE o DELETE)
         }
     }
 

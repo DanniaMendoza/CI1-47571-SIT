@@ -1,0 +1,88 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 8 oct. 2023, 23:54:59
+    Author     : PC
+*/
+
+/* resetear css */
+*{
+    margin: 0; /*margen 0, elimina espacio en blanco alrededor de los elementos*/
+    padding: 0; /*relleno interno de elementos en 0*/
+    border: 0; /*bordes de elementos eliminados*/
+    font-size: 100%; /*fuente en tamaño original*/
+    vertical-align: baseline;
+}
+
+body {
+    text-align: center;
+    font-family: 'Lilita One', cursive; /*tipo de fuente*/
+    
+}
+
+.header {
+    background-color: #71BBB1;
+    width: 100%;  /*ancho: abarque 100 % de nuestra pantalla*/
+    height: 150px; /*alto*/
+    position: fixed; /*siempre posicionada parte arriba*/
+    z-index: 100; /*delante de cualquier otro elemento*/
+    
+}
+
+.aviso{
+    margin-top: 300px;
+}
+
+.header__logo {
+    margin: 80px 0px 0px 0px;
+    margin-left: 0px; /*margen a la izquierda -->*/
+}
+
+.header__barra {
+    display: flex; /*elementos flexibles*/
+    /*margin-right: 30px; /*margen a la derecha <--*/
+    align-items: center;
+    justify-content: space-between;
+    height: 63px; /*modifica la parte superior*/
+}
+
+.navegacion_d{
+    margin:50px 50px 50px 300px;
+}
+.navegacion_top {
+    text-decoration: none; /*quita el subrayado letra*/
+    font-size: 25px;      /*tamaño letra*/
+    color: black;
+    padding: 12px 30px; /*alto ancho*/ 
+}
+
+.header__barra a:hover {
+    background: #8abbb4;
+    color: #eded48; 
+}
+
+.navegacion_central {
+    display: flex; /*elementos flexibles*/
+    align-items:center
+     /*espacio entre los contenidos*/
+}
+
+.navegacion_right {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+    padding: 12px 100px;
+    margin-top: -1%;
+    align-items: center;    
+}
+
+.navegacion_d a:hover {
+    background: #8abbb4;
+    color: #eded48;
+}
+/* fin header */
+
+
+/*pie pagina*/

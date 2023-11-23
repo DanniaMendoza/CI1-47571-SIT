@@ -13,16 +13,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "SvUsuarios", urlPatterns = {"/SvUsuarios"})
+@WebServlet(name = "SvUsuarios", urlPatterns =
+{
+    "/SvUsuarios"
+})
 public class SvUsuarios extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String accion = request.getParameter("accion");
-        try {
-            if (accion != null) {
-                switch (accion) {
+        try
+        {
+            if (accion != null)
+            {
+                switch (accion)
+                {
                     case "verificar":
                         verificar(request, response);
                         break;
@@ -53,19 +59,23 @@ public class SvUsuarios extends HttpServlet {
                     case "paginaInicio":
                         paginaInicio(request, response);
                         break;
-                        
+
                     default:
-                        response.sendRedirect("error.jsp");
+                        response.sendRedirect("index.jsp");
                 }
 
-            } else {
-                response.sendRedirect("mensaje.jsp");
+            } else
+            {
+                response.sendRedirect("index.jsp");
             }
 
-        } catch (Exception e) {
-            try {
-                this.getServletConfig().getServletContext().getRequestDispatcher("/mensaje.jsp").forward(request, response);
-            } catch (Exception ex) {
+        } catch (Exception e)
+        {
+            try
+            {
+                this.getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+            } catch (Exception ex)
+            {
                 System.out.println("Error " + e.getMessage());
             }
         }
@@ -91,27 +101,30 @@ public class SvUsuarios extends HttpServlet {
 
     private void verificar(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession sesion;
-        DaoUsuario daousuario;
-        usuarios usuario;
-        usuario = this.obtenerUsuario(request);
-        daousuario = new DaoUsuario();
-        
-        usuario = daousuario.identificar(usuario);
-        
-        if (usuario != null && usuario.getRol().getNombreRol().equals("Administrador")) {
+        DaoUsuario daousuario;//acceso a datos de usuario
+        usuarios usuario;//almacenar la información del usuario
+        usuario = this.obtenerUsuario(request);// Obtenemos los datos del usuario soli
+        daousuario = new DaoUsuario();// instanciamos dao
+
+        usuario = daousuario.identificar(usuario);// Busca el usuario en la base de datos
+        // Verifica el rol del usuario obtenido de la base de datos
+        if (usuario != null && usuario.getRol().getNombreRol().equals("Administrador"))
+        {
             sesion = request.getSession();
             sesion.setAttribute("usuario", usuario);
             request.setAttribute("msje", "Bienvenido al SIT");
             this.getServletConfig().getServletContext().getRequestDispatcher("/Vistas/principalAdministrador.jsp").forward(request, response);
-        
-        } else if (usuario != null && usuario.getRol().getNombreRol().equals("Pasajero")) {
+
+        } else if (usuario != null && usuario.getRol().getNombreRol().equals("Pasajero"))
+        {// Si el usuario es un Pasajero, se redirige a la página de compra de tarjetas
             sesion = request.getSession();
             sesion.setAttribute("pasajero", usuario);
             this.getServletConfig().getServletContext().getRequestDispatcher("/Vistas/CompraTarjeta.jsp").forward(request, response);
-        
-        } else {
+
+        } else
+        {// Si no se encuentra el rol o no corresponde a ninguno de los roles esperados, se muestra un mensaje de error.
             request.setAttribute("mensaje", "Credenciales incorrectas");
-            request.getRequestDispatcher("error.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
     }
@@ -131,39 +144,48 @@ public class SvUsuarios extends HttpServlet {
     }
 
     private void listarUsuarios(HttpServletRequest request, HttpServletResponse response) {
-        DaoUsuario dao = new DaoUsuario();
-        List<usuarios> listausuarios = null;
-        try {
-            listausuarios = dao.listarUsuarios();
+        DaoUsuario dao = new DaoUsuario(); // Se crea un objeto DaoUsuario para acceder a los datos de usuario
+        List<usuarios> listausuarios = null; //Inicializamos la Lista de usuarios como nula
+        try
+        {
+            listausuarios = dao.listarUsuarios();//obtiene la lista de usuarios desde la BD
             request.setAttribute("listarUsuarios", listausuarios);
 
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             request.setAttribute("mensaje", "No se pudo listar usuarios" + e.getMessage());
-        } finally {
-            dao = null;
+        } finally
+        {
+            dao = null; // Se establece el objeto DaoUsuario como nulo en el bloque finally para liberar recursos
         }
 
-        try {
+        try
+        {
             this.getServletConfig().getServletContext().getRequestDispatcher("/Vistas/usuarios.jsp").forward(request, response);
-        } catch (Exception ex) {
+        } catch (Exception ex)
+        {
             request.setAttribute("mensaje", "No se pudo listar usuarios" + ex.getMessage());
         }
     }
 
     private void mostrarFormulario(HttpServletRequest request, HttpServletResponse response) {
-        try {
+        try
+        {
             this.cargarRoles(request);
             this.getServletConfig().getServletContext().getRequestDispatcher("/Vistas/agregarUsuario.jsp").forward(request, response);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             request.setAttribute("mensaje", "No se pudo agregar usuarios" + e.getMessage());
         }
     }
-    
+
     private void paginaInicio(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            
+        try
+        {
+
             this.getServletConfig().getServletContext().getRequestDispatcher("/Vistas/principalAdministrador.jsp").forward(request, response);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             request.setAttribute("mensaje", "No se pudo agregar usuarios" + e.getMessage());
         }
     }
@@ -171,12 +193,15 @@ public class SvUsuarios extends HttpServlet {
     private void cargarRoles(HttpServletRequest request) {
         DaoRol daoRol = new DaoRol();
         List<roles> rolesLista = null;
-        try {
+        try
+        {
             rolesLista = daoRol.listarRoles();
             request.setAttribute("roles", rolesLista);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             request.setAttribute("msje", "No se pudo cargar los roles :( " + e.getMessage());
-        } finally {
+        } finally
+        {
             rolesLista = null;
             daoRol = null;
         }
@@ -194,7 +219,8 @@ public class SvUsuarios extends HttpServlet {
                 && request.getParameter("txtCorreo") != null
                 && request.getParameter("txtTelefono") != null
                 && request.getParameter("txtClave") != null
-                && request.getParameter("seleccionRol") != null) {
+                && request.getParameter("seleccionRol") != null)
+        {
 
             usu = new usuarios();
             usu.setNombreUsuario(request.getParameter("txtNombre"));
@@ -209,17 +235,21 @@ public class SvUsuarios extends HttpServlet {
             rol.setIdRol(Integer.parseInt(request.getParameter("seleccionRol")));
             usu.setRol(rol);
 
-            if (request.getParameter("chkEstado") != null) {
+            if (request.getParameter("chkEstado") != null)
+            {
                 usu.setEstado(true);
-            } else {
+            } else
+            {
                 usu.setEstado(false);
             }
 
             usuDAO = new DaoUsuario();
-            try {
+            try
+            {
                 usuDAO.registrarUsuario(usu);
                 response.sendRedirect("SvUsuarios?accion=listarUsuarios");
-            } catch (Exception e) {
+            } catch (Exception e)
+            {
                 request.setAttribute("msje",
                         "No se pudo registrar el usuario" + e.getMessage());
                 request.setAttribute("usuario", usu);
@@ -232,19 +262,24 @@ public class SvUsuarios extends HttpServlet {
     private void listarRoles(HttpServletRequest request, HttpServletResponse response) {
         DaoRol dao = new DaoRol();
         List<roles> listaRoles = null;
-        try {
+        try
+        {
             listaRoles = dao.listarRoles();
             request.setAttribute("listarRoles", listaRoles);
 
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             request.setAttribute("mensaje", "No se pudo listar usuarios" + e.getMessage());
-        } finally {
+        } finally
+        {
             dao = null;
         }
 
-        try {
+        try
+        {
             this.getServletConfig().getServletContext().getRequestDispatcher("/Vistas/listaRoles.jsp").forward(request, response);
-        } catch (Exception ex) {
+        } catch (Exception ex)
+        {
             request.setAttribute("mensaje", "No se pudo listar usuarios" + ex.getMessage());
         }
     }
@@ -253,31 +288,39 @@ public class SvUsuarios extends HttpServlet {
         DaoUsuario usuarioDao;
         usuarios usuar;
 
-        if (request.getParameter("cod") != null) {
+        if (request.getParameter("cod") != null)
+        {
             usuar = new usuarios();
 
             usuar.setId_usuario(Integer.parseInt(request.getParameter("cod")));
 
             usuarioDao = new DaoUsuario();
-            try {
+            try
+            {
                 usuar = usuarioDao.leerUsuario(usuar);
-                if (usuar != null) {
+                if (usuar != null)
+                {
                     request.setAttribute("usuEditar", usuar);
-                } else {
+                } else
+                {
                     request.setAttribute("msje", "No se encontró el usuario");
                 }
-            } catch (Exception e) {
+            } catch (Exception e)
+            {
                 request.setAttribute("msje", "No se pudo acceder a la base de datos" + e.getMessage());
             }
-        } else {
+        } else
+        {
             request.setAttribute("msje", "No se tiene el parámetro necesario");
         }
-        try {
+        try
+        {
             this.cargarRoles(request);
             this.getServletConfig().getServletContext().
                     getRequestDispatcher("/Vistas/actualizarUsuario.jsp"
                     ).forward(request, response);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             request.setAttribute("msje", "No se pudo realizar la operacion" + e.getMessage());
         }
 
@@ -297,7 +340,8 @@ public class SvUsuarios extends HttpServlet {
                 && request.getParameter("txtTelefono") != null
                 && request.getParameter("txtClave") != null
                 && request.getParameter("chkEstado") != null
-                && request.getParameter("seleccionRol") != null) {
+                && request.getParameter("seleccionRol") != null)
+        {
 
             usus = new usuarios();
             usus.setId_usuario(Integer.parseInt(request.getParameter("hCodigo")));
@@ -313,28 +357,34 @@ public class SvUsuarios extends HttpServlet {
             rol.setIdRol(Integer.parseInt(request.getParameter("seleccionRol")));
             usus.setRol(rol);
 
-            if (request.getParameter("chkEstado") != null) {
+            if (request.getParameter("chkEstado") != null)
+            {
                 usus.setEstado(true);
-            } else {
+            } else
+            {
                 usus.setEstado(false);
             }
 
             daoUsu = new DaoUsuario();
-            try {
+            try
+            {
                 daoUsu.actualizarUsuarios(usus);
                 response.sendRedirect("SvUsuarios?accion=listarUsuarios");
-            } catch (Exception e) {
+            } catch (Exception e)
+            {
                 request.setAttribute("msje",
                         "No se pudo registrar el usuario" + e.getMessage());
                 request.setAttribute("usuario", usus);
 
             }
-            try {
+            try
+            {
                 this.cargarRoles(request);
                 this.getServletConfig().getServletContext().
                         getRequestDispatcher("/Vistas/actualizarUsuario.jsp"
                         ).forward(request, response);
-            } catch (Exception ex) {
+            } catch (Exception ex)
+            {
                 request.setAttribute("msje", "No se pudo realizar la operacion" + ex.getMessage());
             }
 
@@ -345,12 +395,15 @@ public class SvUsuarios extends HttpServlet {
     private void eliminarUsuario(HttpServletRequest request, HttpServletResponse response) {
         DaoUsuario dao = new DaoUsuario();
         usuarios usus = new usuarios();
-        if (request.getParameter("cod") != null) {
+        if (request.getParameter("cod") != null)
+        {
             usus.setId_usuario(Integer.parseInt(request.getParameter("cod")));
-            try {
+            try
+            {
                 dao.eliminarUsuario(usus);
                 response.sendRedirect("SvUsuarios?accion=listarUsuarios");
-            } catch (Exception e) {
+            } catch (Exception e)
+            {
                 request.setAttribute("msje",
                         "No se pudo registrar el usuario" + e.getMessage());
                 request.setAttribute("usuario", usus);

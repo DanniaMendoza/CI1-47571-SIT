@@ -26,7 +26,7 @@
                     <div class="input-group-text bg-info">
                         <img src="assets/img/username-icon.svg" alt="username-icon" style="height: 1rem" />
                     </div>
-                    <input class="form-control bg-light"  name="txtUsuario" type="text" placeholder="Username" />
+                    <input class="form-control bg-light"  name="txtUsuario" type="text" placeholder="Dni" />
                 </div>
                 
                 <div class="input-group mt-1">

@@ -40,7 +40,7 @@
                                 <label class="col-sm-2 control-label">Nombre</label>
                                 <div class="col-sm-4 input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="nombre" type="text" class="form-control" placeholder="Ejm: Jakheline" name="txtNombre" maxlength="20"
+                                    <input required id="nombre" type="text" class="form-control" placeholder="Ejm: Jakheline" name="txtNombre" maxlength="20"
                                            value="">
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                 <label class="col-sm-2 control-label">Primer apellido</label>
                                 <div class="col-sm-4 input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="apellidoPaterno" type="text" class="form-control" placeholder="Primer apellido" name="txtApePa" maxlength="20"
+                                    <input required id="apellidoPaterno" type="text" class="form-control" placeholder="Primer apellido" name="txtApePa" maxlength="20"
                                            value="">
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                                 <label class="col-sm-2 control-label">Segundo Apellido</label>
                                 <div class="col-sm-4 input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="apellidoMaterno" type="text" class="form-control" placeholder="Segundo Apellido" name="txtApeMa" maxlength="20"
+                                    <input required id="apellidoMaterno" type="text" class="form-control" placeholder="Segundo Apellido" name="txtApeMa" maxlength="20"
                                            value="">
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                 <label class="col-sm-2 control-label">Documento de Identidad</label>
                                 <div class="col-sm-4 input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="dni" type="text" class="form-control" placeholder="Documento de Identidad" name="txtDni" maxlength="8"
+                                    <input required id="dni" type="text" class="form-control" placeholder="Documento de Identidad" name="txtDni" maxlength="8"
                                            value="">
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                 <label class="col-sm-2 control-label">Correo electronico</label>
                                 <div class="col-sm-4 input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="Correo" type="text" class="form-control" placeholder="Correo electronico" name="txtCorreo" maxlength="40"
+                                    <input required id="Correo" type="text" class="form-control" placeholder="Correo electronico" name="txtCorreo" maxlength="40"
                                            value="">
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                 <label class="col-sm-2 control-label">Número Celular</label>
                                 <div class="col-sm-4 input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="Telefono" type="text" class="form-control" placeholder="Ejem: 123456789" name="txtTelefono" maxlength="10"
+                                    <input required id="Telefono" type="tel"  class="form-control" placeholder="Ejem: 123456789" name="txtTelefono" maxlength="10"
                                            value="">
                                 </div>
                             </div>
@@ -100,7 +100,16 @@
                                 <label class="col-sm-2 control-label">Contraseña</label>
                                 <div class="col-sm-4 input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input id="nombre" type="password" class="form-control" placeholder="Ejem: ******" name="txtClave" maxlength="10"
+                                    <input required id="nombre" type="password" class="form-control" placeholder="Ejem: ******" name="txtClave" maxlength="10"
+                                           value="">
+                                </div>
+                            </div>
+                            <!-- Fecha -->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Fecha de nacimiento</label>
+                                <div class="col-sm-4 input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <input required id="nombre" type="date" class="form-control" placeholder="Ejem: 12/12/2002" name="txtClave" maxlength="10"
                                            value="">
                                 </div>
                             </div>

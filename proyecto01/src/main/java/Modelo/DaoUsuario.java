@@ -10,7 +10,7 @@ import java.util.List;
 public class DaoUsuario extends Conexion {
 
     public usuarios identificar(usuarios user) throws Exception {
-        usuarios usu = null;
+        usuarios usu = null;//ini obj usu cmo N
         ResultSet rs = null;
 
         String sql = "SELECT U.ID_Usuario, R.NombreRol, U.NombreUsuario "
@@ -19,9 +19,10 @@ public class DaoUsuario extends Conexion {
                 + "WHERE U.EstadoUsuario = 1 AND U.DNI = '" + user.getDni() + "' AND U.ClaveUsuario = '" + user.getClave() + "'";
 
         try {
-            this.conectar(false);
-            rs = this.ejecutarOrdenDatos(sql);
+            this.conectar(false);//establecer una con a la BD
+            rs = this.ejecutarOrdenDatos(sql);//ejelaconsulta y obt un rs
             if (rs.next()) {
+                //Si se encontró un resultado en el ResultSet, se extraen los datos y se asignan a un objeto usuario
                 usu = new usuarios();
                 usu.setId_usuario(rs.getInt("ID_Usuario"));
                 usu.setDni(user.getDni());
@@ -34,7 +35,7 @@ public class DaoUsuario extends Conexion {
         } catch (Exception e) {
             System.out.println("Error" + e.getMessage());
         } finally {
-            this.cerrar(false);
+            this.cerrar(false);//cerramos la conex a la BD
         }
         return usu;
 
@@ -52,23 +53,23 @@ public class DaoUsuario extends Conexion {
             this.conectar(false);
             rs = this.ejecutarOrdenDatos(sql);
 
-            usuarios = new ArrayList<>();
+            usuarios = new ArrayList<>();// Inicializa la lista de usuarios
 
-            while (rs.next() == true) {
+            while (rs.next() == true) { // Itera a través de los resultados de la consulta
                 usu = new usuarios();
                 usu.setId_usuario(rs.getInt("ID_Usuario"));
                 usu.setNombreUsuario(rs.getString("NombreUsuario"));
                 usu.setApellidoPaterno(rs.getString("ApellidoPaterno"));
                 usu.setApellidoMaterno(rs.getString("ApellidoMaterno"));
 
-                usu.setRol(new roles());
-                usu.getRol().setNombreRol(rs.getString("NombreRol"));
+                usu.setRol(new roles());// Inicializa un nuevo objeto rol
+                usu.getRol().setNombreRol(rs.getString("NombreRol"));// Asigna el nombre del rol al usuario
 
                 usu.setDni(rs.getString("DNI"));
                 usu.setCorreo(rs.getString("CorreoElectronico"));
                 usu.setTelefono(rs.getString("NumeroTelefono"));
                 usu.setClave(rs.getString("ClaveUsuario"));
-                usu.setEstado(true);
+                usu.setEstado(rs.getBoolean("Estado"));
 
                 usuarios.add(usu);
             }
@@ -77,7 +78,7 @@ public class DaoUsuario extends Conexion {
             throw e;
         } finally {
         }
-        return usuarios;
+        return usuarios; // Devuelve la lista de usuarios obtenida de la base de datos
     }
 
     public void registrarUsuario(usuarios usu) throws Exception {
@@ -96,10 +97,10 @@ public class DaoUsuario extends Conexion {
 
         try {
             this.conectar(false);
-            this.ejecutarOrden(sql);
-            this.cerrar(true);
+            this.ejecutarOrden(sql);// Ejecuta la orden SQL para insertar un nuevo usuario
+            this.cerrar(true);// se indica  que se va aejecutar los cambios "commit"
         } catch (Exception e) {
-            this.cerrar(false);
+            this.cerrar(false);//se indica que no se va aejecutar la sentencia "roolback"
             throw e;
         }
     }
@@ -157,6 +158,19 @@ public class DaoUsuario extends Conexion {
     }
 
     public void eliminarUsuario(usuarios usu) throws Exception {
+        String sql = "DELETE FROM USUARIOS"
+                + " WHERE ID_USUARIO = " + usu.getId_usuario();
+
+        try {
+            this.conectar(false);
+            this.ejecutarOrden(sql);
+            this.cerrar(true);
+        } catch (Exception e) {
+            this.cerrar(false);
+            throw e;
+        }
+    }
+    public void DesactivarUsuario(usuarios usu) throws Exception {
         String sql = "DELETE FROM USUARIOS"
                 + " WHERE ID_USUARIO = " + usu.getId_usuario();
 
