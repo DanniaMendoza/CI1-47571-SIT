@@ -69,7 +69,7 @@ public class DaoUsuario extends Conexion {
                 usu.setCorreo(rs.getString("CorreoElectronico"));
                 usu.setTelefono(rs.getString("NumeroTelefono"));
                 usu.setClave(rs.getString("ClaveUsuario"));
-                usu.setEstado(rs.getBoolean("Estado"));
+                usu.setEstado(true);
 
                 usuarios.add(usu);
             }
@@ -158,19 +158,6 @@ public class DaoUsuario extends Conexion {
     }
 
     public void eliminarUsuario(usuarios usu) throws Exception {
-        String sql = "DELETE FROM USUARIOS"
-                + " WHERE ID_USUARIO = " + usu.getId_usuario();
-
-        try {
-            this.conectar(false);
-            this.ejecutarOrden(sql);
-            this.cerrar(true);
-        } catch (Exception e) {
-            this.cerrar(false);
-            throw e;
-        }
-    }
-    public void DesactivarUsuario(usuarios usu) throws Exception {
         String sql = "DELETE FROM USUARIOS"
                 + " WHERE ID_USUARIO = " + usu.getId_usuario();
 
