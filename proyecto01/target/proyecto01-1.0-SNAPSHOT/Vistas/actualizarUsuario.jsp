@@ -150,7 +150,7 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="reset" class="btn btn-danger"><i class="fa fa-close red"></i> Cancelar</button>
-                            <button type="submit" id="" name="btnRegistrar" value="registrar" class="btn btn-success"><i class="fa fa-floppy-o"></i> Registrar</button>
+                            <button type="submit" id="" name="btnRegistrar" value="registrar" class="btn btn-success"><i class="fa fa-floppy-o"></i> Modificar</button>
 
                         </div>
                         <!-- /.box-footer -->

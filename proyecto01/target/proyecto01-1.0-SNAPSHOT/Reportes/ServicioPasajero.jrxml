@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ServicioFecha" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id_viaje" class="java.lang.Integer"/>
+	<field name="id_pasajero" class="java.lang.Integer"/>
+	<field name="id_conductor" class="java.lang.Integer"/>
+	<field name="id_ruta" class="java.lang.Integer"/>
+	<field name="fecha" class="java.util.Date"/>
+	<field name="estadoviaje" class="java.lang.String"/>
+	<field name="tarifa" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="105" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="195" y="-10" width="412" height="62" uuid="bc1ce1da-8232-46ea-be55-cec4abb986dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[REPORTE SIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="210" y="50" width="387" height="30" uuid="f6a78448-8260-4445-a9e0-e3fb53b080d9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[REPORTE SIT SERVICIOS POR PASAJERO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="72" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="e9d2002a-c8ee-4649-a258-640dad29110c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="30" width="80" height="30" uuid="2dd41705-58d9-4c5f-9126-023cdd53b2c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID VIAJE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="30" width="100" height="30" uuid="53df6b74-bbf4-45e1-a070-2801ac4bba54"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID PASAJERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="30" width="120" height="30" uuid="3a409e20-133f-4cea-be69-1a68f8b86f90"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID CONDUCTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="30" width="70" height="30" uuid="4ecfd0db-eade-45df-9aca-294e908cc8a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID RUTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="30" width="100" height="30" uuid="281b4872-7d0f-4aea-9f3f-a6203b1063f9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="570" y="30" width="150" height="30" uuid="9f5cf44c-6d82-4ed0-86da-9e4fe53d5936"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTADO VIAJE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="732" y="30" width="70" height="30" uuid="b493801b-d571-4d3b-9374-5c1b65e44464"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TARIFA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="66" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="18" width="80" height="30" uuid="f6592f0f-6efb-40ab-aa8d-6fe8f45236a8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8bf1debf-4a32-4bb9-b93a-cc7e7a3c8ab2"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id_viaje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="18" width="100" height="30" uuid="467e71cf-0e2f-4c30-b522-ec4c2a8c510d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7e00e4b0-e119-48ab-88a8-7905f022ebdd"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id_pasajero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="18" width="120" height="30" uuid="fb2a765e-9e0c-4000-9414-a76cb1337e09">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4cebaff5-6fcb-4337-8365-ecc352ecc6d6"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id_conductor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="18" width="70" height="30" uuid="45d53a46-5198-454b-9163-1ee1a46b5927">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d5293b1a-6b97-464e-a368-975eac35ce93"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id_ruta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="18" width="100" height="30" uuid="1313f4ca-8171-465c-bbdf-150efb0c2d8e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="124a41a7-ee6d-488d-9078-a2850df424e1"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="570" y="18" width="150" height="30" uuid="272eed17-49b2-45eb-95e7-6a4ddd6f1f92">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="18d34e28-6bb9-419b-acf2-296a68a7c474"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{estadoviaje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="732" y="18" width="70" height="30" uuid="40f4c2e4-13dd-4426-849b-64d46d4e3e16">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="132d6530-38bb-4a34-9426-5a229b98ef93"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tarifa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="fa5e88d5-a011-4e32-8f12-ce923f903111"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="5d8169bd-4a75-48c8-8a68-6d3ad5ba9402"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="e5e27efa-b599-499b-9ca3-848cb511cb7b"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="18cfe1ca-f7d6-48b0-9827-28578b42a5e0"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="fbce24bb-3cb1-44a3-8eec-8c067ddbe5b5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

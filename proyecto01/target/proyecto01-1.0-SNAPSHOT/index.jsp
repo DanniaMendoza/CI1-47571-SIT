@@ -20,7 +20,7 @@
                 <img src="assets/img/login-icon.svg" alt="login-icon" style="height: 7rem" />
             </div>
             <div class="text-center fs-1 fw-bold">Login</div>
-            
+
             <form action="SvUsuarios?accion=verificar" method="POST">
                 <div class="input-group mt-4">
                     <div class="input-group-text bg-info">
@@ -28,7 +28,7 @@
                     </div>
                     <input class="form-control bg-light"  name="txtUsuario" type="text" placeholder="Dni" />
                 </div>
-                
+
                 <div class="input-group mt-1">
                     <div class="input-group-text bg-info">
                         <img src="assets/img/password-icon.svg" alt="password-icon" style="height: 1rem" />
@@ -50,7 +50,13 @@
             <div class="d-flex gap-1 justify-content-center mt-1">
                 <div>¿No tienes una cuenta?</div>
                 <a href="registroPasajero.jsp" class="text-decoration-none text-info fw-semibold">Registrate</a>
+
+
             </div>
+
+            <li class="">
+                <a href="${pageContext.request.contextPath}/SvUsuarios?accion=mostrarFormulario2"> <span>Registrar usuario</span></a>
+            </li>
             <div class="p-3">
                 <div class="border-bottom text-center" style="height: 0.9rem">
 

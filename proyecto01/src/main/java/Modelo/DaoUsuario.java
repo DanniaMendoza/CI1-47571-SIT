@@ -170,5 +170,35 @@ public class DaoUsuario extends Conexion {
             throw e;
         }
     }
+     public usuarios obtenerPorDni(String dni) throws Exception {
+        usuarios usus = null;
+        ResultSet rs = null;
 
+        String sql = "SELECT U.ID_Usuario, R.ID_Rol, U.NombreUsuario,  U.ApellidoPaterno, U.ApellidoMaterno, U.DNI, U.CorreoElectronico, U.NumeroTelefono, U.ClaveUsuario, U.EstadoUsuario FROM Usuarios U INNER JOIN Roles R ON U.ID_Rol = R.ID_Rol WHERE U.DNI= " + dni;
+
+        try {
+            this.conectar(false);
+            rs = this.ejecutarOrdenDatos(sql);
+
+            if (rs.next() == true) {
+                usus = new usuarios();
+                usus.setId_usuario(rs.getInt("ID_Usuario"));
+                usus.setRol(new roles());
+                usus.getRol().setIdRol(rs.getInt("ID_Rol"));
+                usus.setNombreUsuario(rs.getString("NombreUsuario"));
+                usus.setApellidoPaterno(rs.getString("ApellidoPaterno"));
+                usus.setApellidoMaterno(rs.getString("ApellidoMaterno"));
+                usus.setDni(rs.getString("DNI"));
+                usus.setCorreo(rs.getString("CorreoElectronico"));
+                usus.setTelefono(rs.getString("NumeroTelefono"));
+                usus.setClave(rs.getString("ClaveUsuario"));
+                usus.setEstado(rs.getBoolean("EstadoUsuario"));
+            }
+            this.cerrar(true);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+        }
+        return usus;
+    }
 }

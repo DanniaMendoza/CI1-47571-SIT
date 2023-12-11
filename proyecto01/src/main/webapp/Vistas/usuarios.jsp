@@ -16,7 +16,7 @@
 
             <link href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet"
                 type="text/css" />
-            <link href="/css/sweetalert.css" rel="stylesheet" type="text/css" />
+            <link href="css/sweetalert.css" rel="stylesheet" type="text/css" />
             <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
 
 
@@ -55,21 +55,20 @@
                             <a href="${pageContext.request.contextPath}/SvUsuarios?accion=listarUsuarios"><i class="glyphicon glyphicon-th-large"></i> <span>Administrar
                                     Usuarios</span></a>
                         </li>
-                        <li class="">
-                            <a href="#"><i class="glyphicon glyphicon-th-large"></i> <span>Administrar
-                                    Transportistas</span></a>
+                       <li class="">
+                             <a href="${pageContext.request.contextPath}/SvTransportista?accion=listarUsuarios"><i class="glyphicon glyphicon-th-large"></i> <span>Administrar Transportistas</span></a>
                         </li>
                         <li class="">
                             <a href="${pageContext.request.contextPath}/SvTransporte?accion=listarVehiculos"><i class="glyphicon glyphicon-th-large"></i> <span>Administrar
-                                    Vehiculo</span></a>
+                                    Vehiculo</span></a></li>
                         <li class="">
                             <a href="${pageContext.request.contextPath}/SvRol?accion=listarRoles"><i class="glyphicon glyphicon-th-large"></i> <span>Administrar Roles</span></a>
                         </li>
                         <li class="">
-                            <a href="#"><i class="glyphicon glyphicon-th-large"></i> <span>Administrar Rutas</span></a>
+                             <a href="${pageContext.request.contextPath}/SvRuta?accion=listarRutas"><i class="glyphicon glyphicon-th-large"></i> <span>Administrar Rutas</span></a>
                         </li>
                         <li class="">
-                            <a href="#"><i class="glyphicon glyphicon-th-large"></i> <span>Reportes</span> </a>
+                            <a href="Vistas/buscarServiciosFechas.jsp"><i class="glyphicon glyphicon-th-large"></i> <span>Reportes</span> </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="SvUsuarios?accion=cerrar">Cerrar Sesion</a>

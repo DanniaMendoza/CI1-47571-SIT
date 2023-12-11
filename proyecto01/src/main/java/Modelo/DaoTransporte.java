@@ -12,7 +12,7 @@ public class DaoTransporte extends Conexion {
         List<transporte> vehiculo;
         transporte transpor;
         ResultSet rs = null;
-        String sql = "SELECT V.ID_Vehiculo, V.ID_Conductor, U.NombreUsuario, V.Marca, V.Modelo, V.Anio, V.NumeroPlaca, V.EstadoMantenimiento, V.Estado FROM Vehiculos AS V INNER JOIN Usuarios AS U ON V.ID_Conductor = U.ID_Usuario";
+        String sql = "SELECT V.ID_Vehiculo, V.ID_Conductor, U.NombreUsuario, V.Marca, V.Modelo, V.Anio, V.NumeroPlaca, V.Empresa, V.Estado FROM Vehiculos AS V INNER JOIN Usuarios AS U ON V.ID_Conductor = U.ID_Usuario";
 
         try {
             this.conectar(false);
@@ -33,7 +33,7 @@ public class DaoTransporte extends Conexion {
                 transpor.setModelo(rs.getString("Modelo"));
                 transpor.setAnio(rs.getInt("Anio"));
                 transpor.setNumeroPlaca(rs.getString("NumeroPlaca"));
-                transpor.setEstadoMantenimiento(rs.getString("EstadoMantenimiento"));
+                transpor.setEstadoMantenimiento(rs.getString("Empresa"));
                 transpor.setEstado(true);
 
                 vehiculo.add(transpor);
@@ -48,7 +48,7 @@ public class DaoTransporte extends Conexion {
 
     public void registrarVehiculo(transporte vehiculo) throws Exception {
         String sql;
-        sql = "INSERT INTO Usuarios (ID_Vehiculo, ID_Conductor, Marca, Modelo, Anio, NumeroPlaca, EstadoMantenimiento, Estado) "
+        sql = "INSERT INTO Usuarios (ID_Vehiculo, ID_Conductor, Marca, Modelo, Anio, NumeroPlaca, Empresa, Estado) "
                 + "VALUES ('" + vehiculo.getId_Vehiculo() + "','"
                 + vehiculo.getId_Vehiculo()+ "','"
                 + vehiculo.getMarca() + "','"

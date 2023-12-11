@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-        <title>Agregar Rol</title>
+        <title>Agregar Ruta</title>
     </head>
 
     <body class="">
@@ -28,7 +28,7 @@
             <section class="content">
                 <div class="box">
                     <div class="box-header with-border">
-                        <i class="fa fa-edit"></i> <h3 class="box-title">Registrar Rol</h3>  
+                        <i class="fa fa-edit"></i> <h3 class="box-title">Registrar Ruta</h3>  
                     </div>
 
                     <!-- --------FORMULARIO----------- -->

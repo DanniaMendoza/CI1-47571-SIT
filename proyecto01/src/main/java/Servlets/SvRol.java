@@ -1,18 +1,26 @@
-
 package Servlets;
 
 import Entidades.roles;
-import Entidades.usuarios;
 import Modelo.DaoRol;
-import Modelo.DaoUsuario;
+import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import org.springframework.util.ResourceUtils;
 
 @WebServlet(name = "SvRol", urlPatterns = {"/SvRol"})
 public class SvRol extends HttpServlet {
@@ -31,6 +39,9 @@ public class SvRol extends HttpServlet {
                         break;
                     case "mostrarFormularioRol":
                         mostrarFormularioRol(request, response);
+                        break;
+                    case "imprimirRol":
+                        imprimirRol(request, response);
                         break;
                     case "leerRol":
                         leerRol(request, response);
@@ -104,6 +115,34 @@ public class SvRol extends HttpServlet {
         }
     }
 
+    private void imprimirRol(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            System.out.println("HOLA");
+            String destino = "d:\\listaRoles.pdf";
+            System.out.println("TEST");
+            System.out.println("TEST");
+            ;
+            File template = new File(request.getSession().getServletContext().getRealPath("/Reportes/reporteSIT_listaroles.jrxml"));
+            System.out.println(template.getAbsolutePath());
+            System.out.println(template.getAbsoluteFile());
+            JasperReport jasperReport = JasperCompileManager.compileReport(template.getAbsolutePath());
+            Map<String, Object> parametros = new HashMap<>();
+//            parametros.put("", "");
+
+            List<roles> listaRoles = new ArrayList();
+            listaRoles.add(new roles(1, "Administrador", true));
+            listaRoles.add(new roles(2, "Usuario", true));
+            listaRoles.add(new roles(3, "Cliente", true));
+            listaRoles.add(new roles(4, "Proveedor", true));
+            JRDataSource dataSource = new JRBeanCollectionDataSource(listaRoles);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametros, dataSource);
+            JasperExportManager.exportReportToPdfFile(jasperPrint, destino);
+//            this.getServletConfig().getServletContext().getRequestDispatcher("/Vistas/listaRoles.jsp").forward(request, response);
+        } catch (Exception e) {
+            request.setAttribute("mensaje", "No se pudo imprimir roles" + e.getMessage());
+        }
+    }
+
     private void registrarRol(HttpServletRequest request, HttpServletResponse response) {
         DaoRol rolDAO = null;
         roles rol;
@@ -111,18 +150,16 @@ public class SvRol extends HttpServlet {
 
             rol = new roles();
             rol.setNombreRol(request.getParameter("txtNombreRol"));
-            
-        
-            
+
             rolDAO = new DaoRol();
-            
+
             try {
                 rolDAO.registrarRol(rol);
                 response.sendRedirect("SvRol?accion=listarRoles");
             } catch (Exception e) {
-                request.setAttribute("msje","No se pudo registrar el usuario" + e.getMessage());
+                request.setAttribute("msje", "No se pudo registrar el usuario" + e.getMessage());
                 request.setAttribute("usuario", rol);
-                
+
                 this.mostrarFormularioRol(request, response);
             }
 

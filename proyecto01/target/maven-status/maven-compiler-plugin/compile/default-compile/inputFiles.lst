@@ -1,11 +1,25 @@
-D:\Proyectos\proyecto01\src\main\java\Entidades\transporte.java
-D:\Proyectos\proyecto01\src\main\java\Modelo\DaoRol.java
-D:\Proyectos\proyecto01\src\main\java\Modelo\DaoTransporte.java
-D:\Proyectos\proyecto01\src\main\java\Modelo\DaoUsuario.java
-D:\Proyectos\proyecto01\src\main\java\Entidades\roles.java
-D:\Proyectos\proyecto01\src\main\java\Servlets\SvRol.java
-D:\Proyectos\proyecto01\src\main\java\Servlets\SvUsuarios.java
-D:\Proyectos\proyecto01\src\main\java\Conexion\Conexion.java
-D:\Proyectos\proyecto01\src\main\java\Conexion\Parametro.java
-D:\Proyectos\proyecto01\src\main\java\Entidades\usuarios.java
-D:\Proyectos\proyecto01\src\main\java\Servlets\SvTransporte.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Modelo\DaoRuta.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Modelo\DaoHistorialViajes.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Modelo\DaoRol.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Entidades\roles.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Conexion\Conectar.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Servlets\SvReporte.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Servlets\SvTransporte.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Entidades\transporte.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Servlets\SvRuta.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Entidades\rutas.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Modelo\DaoUsuario.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Conexion\Conexion.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Modelo\DaoTransporte.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Servlets\SvRol.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Conexion\Parametro.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Entidades\ServiciosViaje.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Modelo\DaoTransportista.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Conexion\Comprobar.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Servlets\SvTransportista.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Entidades\historialViajes.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Entidades\usuarios.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Servlets\SvUsuarios.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Modelo\DaoTarjeta.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Entidades\Tarjeta.java
+D:\UTP 2023-2\Integrador 1\Proyecto SIT\version\proyecto01\src\main\java\Servlets\SvTarjeta.java

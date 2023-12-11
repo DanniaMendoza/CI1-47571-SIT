@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="Entidades.*"%>
 <%@page import="java.util.ArrayList"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,9 +47,9 @@
                                     Actividades
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/Vistas/CompraTarjeta.jsp">Compra de Tarjeta</a></li>
-                                    <li><a class="dropdown-item" href="/Vistas/Carga.jsp">Cargar tarjeta</a></li>
-                                    <li><a class="dropdown-item" href="/Vistas/Cobro.jsp">Cobro de tarjeta</a></li>
+                                    <li><a class="dropdown-item" href="SvTarjeta?accion=principal">Compra de Tarjeta</a></li>
+                                    <li><a class="dropdown-item" href="SvTarjeta?accion=carga">Cargar tarjeta</a></li>
+                                    <li><a class="dropdown-item" href="SvTarjeta?accion=cobro">Cobro de tarjeta</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -69,43 +68,41 @@
             </section>
 
             <section class="contenedorP">
-                <form >
+                <form action="SvTarjeta" method="POST" >
 
                     <h2 class="contenedorP__h2">Detalles de carga</h2>
                     <div class="contenedorP__inputbox">
                         <ion-icon name="card-outline"></ion-icon>
-                        <input type="text" name="codigoT" required>
+                        <label for="">Codigo Tarjeta</label>
+                        <input type="text" name="codigoT" >
 
                         <select name="nroTarjeta">
                             <option>Seleccionar tarjeta</option>
                             <c:forEach var="tarjeta" items="${Tarjetas}">
-                                <option value="${tarjeta.idTarjeta}">${tarjeta.numeroTarjeta}</option>
+                                <option value="${tarjeta.id_Tarjeta}">${tarjeta.codigoTarjeta}</option>
                             </c:forEach>   
                         </select>
 
-                        <label for="">Codigo Tarjeta</label>
+                        
                     </div>
                     <div class="contenedorP__inputbox">
                         <ion-icon name="cash-outline"></ion-icon>
-                        <input type="text" name="monto" required>
+                        <input type="text" name="monto">
                         <label for="">Monto </label>
                     </div>
                     <div class="contenedorP__inputbox">
                         <ion-icon name="accessibility-outline"></ion-icon>
-                        <input type="text" name="usuario" required>
+                        <input type="text" name="usuario">
                         <label for="">Numero de tarjeta de credito</label>
                     </div>
                     <div class="contenedorP__precio">
                         <img src="imagenes2/5.jpg" alt="" width="50px">
 
                     </div>
-                    <div>
-                        <p>${tarjetas.Monto}</p>
-                    </div>
 
-                    <button name="registro">Aceptar</button>
+                    <button type="submit" name="accion" value="realizarCarga">Aceptar</button>
+                    <button type="submit" name="accion" value="consultarSaldoC">Consultar</button>
                     <button name="registro">Cancelar</button>
-                    <a href="TarjetaAgregarServlet?accion=consultar">Consultar</a>
                 </form>
 
 
@@ -124,4 +121,5 @@
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-
+</body>
+</html>

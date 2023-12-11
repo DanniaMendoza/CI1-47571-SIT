@@ -14,7 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
      rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
      crossorigin="anonymous">
-        <link rel="stylesheet" href="css/CompraTarjeta.css">
+    <link rel="stylesheet" href="css/CompraTarjeta.css">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
@@ -33,7 +33,7 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link active" aria-current="page" href="Login_1.jsp">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Quienes Somos</a>
@@ -49,9 +49,9 @@
                       Actividades
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/Vistas/CompraTarjeta.jsp">Compra de Tarjeta</a></li>
-                      <li><a class="dropdown-item" href="/Vistas/TarjetaAgregarServlet?accion=listar">Cargar tarjeta</a></li>
-                      <li><a class="dropdown-item" href="/Vistas/Cobro.jsp">Cobro de tarjeta</a></li>
+                      <li><a class="dropdown-item" href="SvTarjeta?accion=principal">Compra de Tarjeta</a></li>
+                      <li><a class="dropdown-item" href="SvTarjeta?accion=carga">Cargar tarjeta</a></li>
+                      <li><a class="dropdown-item" href="SvTarjeta?accion=cobro">Cobro de tarjeta</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -59,27 +59,27 @@
             </div>
           </nav>
     </div >
-    <%
-        HttpSession session1 = request.getSession();
-        Integer id = (Integer) session1.getAttribute("id");
-        System.out.println("Tu id es "+id);
-        
-if (id != null){
-    %>
+
                 
                 
                 
     
      <div class="bloque">
 
+         
+                 
         <section class="aviso">
             <img class="aviso__imagen1" src="imagenes2/1.jpg" alt="" height="400">
         </section>
-
+         
         <section class="contenedorP">
-            <form action="TarjetaAgregarServlet" method="POST" >
+            <div class="d-flex">
+           <a class="btn btn-outline-primary" href="SvTarjeta?accion=pYape">Pago Yape</a> 
+           <a class="btn btn-outline-primary ml-2" href="SvTarjeta?accion=pContado">Pago al contado</a> 
+        </div>
+            <form action="SvTarjeta" method="POST" >
              
-                <h2 class="contenedorP__h2">Detalles del pago</h2>
+                <h2 class="contenedorP__h2">Pago Tarjeta Credito</h2>
                 <div class="contenedorP__inputbox">
                     <ion-icon name="card-outline"></ion-icon>
                     <input type="text" name="numeroT" required>
@@ -115,7 +115,7 @@ if (id != null){
                     <img src="imagenes2/shopping-cart-flat-icon-on-1814668.jpg" alt="" width="50px">
                     <h3 class="costo">$/16.00</h3>
                 </div>
-                <button name="accion" value="agregar">Aceptar</button>
+                <button type="submit" name="accion" value="agregar" >Aceptar</button>
                 <button name="cancelar">Cancelar</button>
             </form>
     
@@ -135,10 +135,6 @@ if (id != null){
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
- <% } else { %>
- <p>Debes iniciar sesion para comprar tarjetas</p>
- <% } %>
-
 
     
 </body>
